@@ -13,7 +13,7 @@ class Blockchain {
       block.hash = this.generateHash(block);
     }
 
-    this.blocks.push(block);
+      this.blocks.push(block);
   }
 
   getNextBlock(transactions) {
@@ -44,6 +44,13 @@ class Blockchain {
 
   getPreviousBlock() {
     return this.blocks[this.blocks.length - 1];
+  }
+
+  isValid(newBlock, prevBlock) {
+    if (newBlock.index !== prevBlock.index + 1) return false;
+    else if (previousBlock.hash !== newBlock.previousHash) return false;
+    else if (this.generateHash(block) !== newBlock.hash) return false;
+    return true;
   }
 }
 
